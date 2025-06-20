@@ -11,6 +11,11 @@ kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/st
 
 ```bash
 kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "LoadBalancer"}}'
+
+````windows
+kubectl patch svc argocd-server -n argocd --type=json -p "[{\"op\":\"replace\", \"path\":\"/spec/type\", \"value\":\"LoadBalancer\"}]"
+
+
 ```
 ## Access the Argo CD UI (Loadbalancer service) -For Windows
 
